@@ -1,0 +1,4 @@
+spring:
+  profiles.active: local
+  main.lazy-initialization: true
+  datasource.driver-class-name: org.postgresql.Driver

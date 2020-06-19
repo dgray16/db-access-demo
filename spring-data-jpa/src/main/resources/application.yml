@@ -1,0 +1,9 @@
+spring:
+  profiles.active: local
+  main.lazy-initialization: true
+  datasource.driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate.ddl-auto: create
+    open-in-view: false
+    show-sql: true
+  data.jpa.repositories.bootstrap-mode: lazy
