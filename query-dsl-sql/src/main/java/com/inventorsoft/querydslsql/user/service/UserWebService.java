@@ -6,9 +6,9 @@ import com.querydsl.core.types.Projections;
 import com.querydsl.sql.postgresql.PostgreSQLQueryFactory;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
-import lombok.SneakyThrows;
 import lombok.experimental.FieldDefaults;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -19,7 +19,7 @@ public class UserWebService {
 
     PostgreSQLQueryFactory postgreSqlQueryFactory;
 
-    @SneakyThrows
+    @Transactional(readOnly = true)
     public List<UserDto> getAllUsers() {
         return postgreSqlQueryFactory
                 .select(Projections.constructor(UserDto.class, QUsers.users.id, QUsers.users.firstName))

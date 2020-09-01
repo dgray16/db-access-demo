@@ -8,6 +8,7 @@ import lombok.experimental.FieldDefaults;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 @Component
 @RequiredArgsConstructor
@@ -17,12 +18,13 @@ public class Initializer implements ApplicationListener<ApplicationReadyEvent> {
     PostgreSQLQueryFactory postgreSQLQueryFactory;
 
     @Override
+    @Transactional
     public void onApplicationEvent(ApplicationReadyEvent event) {
-        createVova();
-        createOleksii();
+        createOleg();
+        createIgor();
     }
 
-    private void createVova() {
+    private void createOleg() {
         postgreSQLQueryFactory
                 .insert(QUsers.users)
                 .columns(QUsers.users.firstName)
@@ -30,7 +32,7 @@ public class Initializer implements ApplicationListener<ApplicationReadyEvent> {
                 .execute();
     }
 
-    private void createOleksii() {
+    private void createIgor() {
         postgreSQLQueryFactory
                 .insert(QUsers.users)
                 .columns(QUsers.users.firstName)

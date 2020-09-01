@@ -1,6 +1,7 @@
 package com.inventorsoft.querydslsql.config;
 
 import com.querydsl.sql.postgresql.PostgreSQLQueryFactory;
+import com.querydsl.sql.spring.SpringConnectionProvider;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 import org.springframework.context.annotation.Bean;
@@ -9,7 +10,6 @@ import org.testcontainers.containers.JdbcDatabaseContainer;
 import org.testcontainers.containers.PostgreSQLContainer;
 
 import javax.sql.DataSource;
-import java.sql.SQLException;
 
 @Configuration
 public class PersistenceConfig {
@@ -36,15 +36,7 @@ public class PersistenceConfig {
 
     @Bean
     PostgreSQLQueryFactory postgreSQLQueryFactory() {
-        final DataSource dataSource = dataSource();
-
-        return new PostgreSQLQueryFactory(() -> {
-            try {
-                return dataSource.getConnection();
-            } catch (SQLException e) {
-                throw new RuntimeException(e.getMessage(), e);
-            }
-        });
+        return new PostgreSQLQueryFactory(new SpringConnectionProvider(dataSource()));
     }
 
 }

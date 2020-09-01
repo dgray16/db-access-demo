@@ -1,7 +1,6 @@
 package com.inventorsoft.jooq.user.service;
 
 import com.inventorsoft.jooq.db.entity.tables.JUsers;
-import com.inventorsoft.jooq.db.entity.tables.records.UsersRecord;
 import com.inventorsoft.jooq.user.model.UserDto;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;

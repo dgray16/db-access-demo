@@ -18,11 +18,11 @@ public class Initializer implements ApplicationListener<ApplicationReadyEvent> {
 
     @Override
     public void onApplicationEvent(ApplicationReadyEvent event) {
-        createVova();
-        createOleksii();
+        createAnton();
+        createAnatolii();
     }
 
-    private void createVova() {
+    private void createAnton() {
         dslContext
                 .insertInto(JUsers.USERS)
                 .columns(JUsers.USERS.FIRST_NAME)
@@ -30,7 +30,7 @@ public class Initializer implements ApplicationListener<ApplicationReadyEvent> {
                 .execute();
     }
 
-    private void createOleksii() {
+    private void createAnatolii() {
         dslContext
                 .insertInto(JUsers.USERS)
                 .columns(JUsers.USERS.FIRST_NAME)

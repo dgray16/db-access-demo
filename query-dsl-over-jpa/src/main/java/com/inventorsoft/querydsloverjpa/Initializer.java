@@ -18,18 +18,18 @@ public class Initializer implements ApplicationListener<ApplicationReadyEvent> {
 
     @Override
     public void onApplicationEvent(ApplicationReadyEvent event) {
-        createVova();
-        createOleksii();
+        createNatalka();
+        createAnna();
     }
 
-    private void createVova() {
+    private void createNatalka() {
         User user = new User();
         user.setFirstName("Natalka");
 
         userRepository.save(user);
     }
 
-    private void createOleksii() {
+    private void createAnna() {
         User user = new User();
         user.setFirstName("Anna");
 
