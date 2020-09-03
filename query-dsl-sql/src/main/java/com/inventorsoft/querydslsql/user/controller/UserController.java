@@ -1,5 +1,6 @@
 package com.inventorsoft.querydslsql.user.controller;
 
+import com.inventorsoft.querydslsql.user.model.AggregatedUserDto;
 import com.inventorsoft.querydslsql.user.model.UserDto;
 import com.inventorsoft.querydslsql.user.service.UserWebService;
 import lombok.AccessLevel;
@@ -20,6 +21,11 @@ public class UserController {
     @GetMapping(value = "users")
     List<UserDto> getUsers() {
         return userWebService.getAllUsers();
+    }
+
+    @GetMapping(value = "users-aggregation")
+    List<AggregatedUserDto> getUsersWithAggregation() {
+        return userWebService.getAllUsersWithAggregation();
     }
 
 }

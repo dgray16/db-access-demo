@@ -1,5 +1,6 @@
 package com.inventorsoft.springjdbc.user.service;
 
+import com.inventorsoft.springjdbc.user.model.AggregatedUserDto;
 import com.inventorsoft.springjdbc.user.model.UserDto;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
@@ -22,6 +23,14 @@ public class UserWebService {
         return jdbcTemplate.query(
                 "SELECT * FROM users",
                 (rs, rowNum) -> new UserDto(rs.getLong("id"), rs.getString("first_name"))
+        );
+    }
+
+    @Transactional(readOnly = true)
+    public List<AggregatedUserDto> getAllUsersWithAggregation() {
+        return jdbcTemplate.query(
+                "SELECT u.first_name, count(u.first_name) FROM users u GROUP BY u.first_name",
+                (rs, rowNum) ->  new AggregatedUserDto(rs.getString(1), rs.getLong(2))
         );
     }
 

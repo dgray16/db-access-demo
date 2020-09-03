@@ -1,6 +1,7 @@
 package com.inventorsoft.querydsloverjpa.user.controller;
 
 import com.inventorsoft.querydsloverjpa.db.entity.User;
+import com.inventorsoft.querydsloverjpa.user.model.AggregatedUserDto;
 import com.inventorsoft.querydsloverjpa.user.service.UserWebService;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
@@ -20,6 +21,11 @@ public class UserController {
     @GetMapping(value = "users")
     List<User> getUsers() {
         return userWebService.getAllUsers();
+    }
+
+    @GetMapping(value = "users-aggregation")
+    List<AggregatedUserDto> getUsersWithAggregation() {
+        return userWebService.getAllUsersWithAggregation();
     }
 
 }

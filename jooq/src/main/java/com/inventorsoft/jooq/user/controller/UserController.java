@@ -1,5 +1,6 @@
 package com.inventorsoft.jooq.user.controller;
 
+import com.inventorsoft.jooq.user.model.AggregatedUserDto;
 import com.inventorsoft.jooq.user.model.UserDto;
 import com.inventorsoft.jooq.user.service.UserWebService;
 import lombok.AccessLevel;
@@ -20,6 +21,11 @@ public class UserController {
     @GetMapping(value = "users")
     List<UserDto> getUsers() {
         return userWebService.getAllUsers();
+    }
+
+    @GetMapping(value = "users-aggregation")
+    List<AggregatedUserDto> getUsersWithAggregation() {
+        return userWebService.getAllUsersWithAggregation();
     }
 
 }

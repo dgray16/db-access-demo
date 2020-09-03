@@ -2,6 +2,7 @@ package com.inventorsoft.querydsloverjpa.user.service;
 
 import com.inventorsoft.querydsloverjpa.db.entity.User;
 import com.inventorsoft.querydsloverjpa.db.repository.UserRepository;
+import com.inventorsoft.querydsloverjpa.user.model.AggregatedUserDto;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
@@ -21,6 +22,11 @@ public class UserWebService {
     @Transactional(readOnly = true)
     public List<User> getAllUsers() {
         return userRepository.getUsersStream().collect(Collectors.toUnmodifiableList());
+    }
+
+    @Transactional(readOnly = true)
+    public List<AggregatedUserDto> getAllUsersWithAggregation() {
+        return userRepository.getUsersWithAggregation();
     }
 
 }
