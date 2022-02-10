@@ -13,7 +13,7 @@ public class PersistenceConfig {
 
     @Bean
     DataSource dataSource() {
-        PostgreSQLContainer container = new PostgreSQLContainer("postgres:12-alpine")
+        PostgreSQLContainer<?> container = new PostgreSQLContainer<>("postgres:14-alpine")
                 .withDatabaseName("spring-data-jpa-database")
                 .withUsername("postgres")
                 .withPassword("postgres");

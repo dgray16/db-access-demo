@@ -13,6 +13,8 @@ import org.springframework.stereotype.Component;
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class Initializer implements ApplicationListener<ApplicationReadyEvent> {
 
+    private static final String INSERT_USER_QUERY = "INSERT INTO users(first_name) VALUES(?)";
+
     JdbcTemplate jdbcTemplate;
 
     @Override
@@ -22,11 +24,11 @@ public class Initializer implements ApplicationListener<ApplicationReadyEvent> {
     }
 
     private void createVova() {
-        jdbcTemplate.update("INSERT INTO users(first_name) VALUES(?)", "Vova");
+        jdbcTemplate.update(INSERT_USER_QUERY, "Vova");
     }
 
     private void createOleksii() {
-        jdbcTemplate.update("INSERT INTO users(first_name) VALUES(?)", "Oleksii");
+        jdbcTemplate.update(INSERT_USER_QUERY, "Oleksii");
     }
 
 }

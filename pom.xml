@@ -22,8 +22,9 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <java.version>14</java.version>
-        <spring.boot.version>2.3.3.RELEASE</spring.boot.version>
+        <java.version>17</java.version>
+        <spring.boot.version>2.6.3</spring.boot.version>
+        <testcontainers.version>1.16.3</testcontainers.version>
     </properties>
 
     <dependencyManagement>
@@ -50,11 +51,10 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version>
+                <version>3.9.0</version>
                 <configuration>
                     <source>${java.version}</source>
                     <target>${java.version}</target>
-                    <compilerArgs>--enable-preview</compilerArgs>
                 </configuration>
             </plugin>
 

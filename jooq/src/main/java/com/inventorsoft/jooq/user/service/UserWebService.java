@@ -12,7 +12,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -27,7 +26,7 @@ public class UserWebService {
                 .selectFrom(JUsers.USERS)
                 .fetchStream()
                 .map(UserDto::of)
-                .collect(Collectors.toUnmodifiableList());
+                .toList();
     }
 
     @Transactional(readOnly = true)
@@ -38,7 +37,7 @@ public class UserWebService {
                 .groupBy(JUsers.USERS.FIRST_NAME)
                 .fetchStream()
                 .map(AggregatedUserDto::of)
-                .collect(Collectors.toUnmodifiableList());
+                .toList();
     }
 
 }

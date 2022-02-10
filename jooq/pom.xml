@@ -24,7 +24,7 @@
         <dependency>
             <groupId>org.testcontainers</groupId>
             <artifactId>postgresql</artifactId>
-            <version>1.14.3</version>
+            <version>${testcontainers.version}</version>
         </dependency>
         <dependency>
             <groupId>org.postgresql</groupId>
@@ -47,7 +47,7 @@
             <plugin>
                 <groupId>org.jooq</groupId>
                 <artifactId>jooq-codegen-maven</artifactId>
-                <version>3.13.4</version>
+                <version>3.16.3</version>
                 <executions>
                     <execution>
                         <phase>generate-sources</phase>

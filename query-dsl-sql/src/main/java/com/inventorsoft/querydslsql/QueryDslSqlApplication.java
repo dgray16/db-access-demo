@@ -3,7 +3,7 @@ package com.inventorsoft.querydslsql;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
+@SpringBootApplication(proxyBeanMethods = false)
 public class QueryDslSqlApplication {
 
     public static void main(String[] args) {

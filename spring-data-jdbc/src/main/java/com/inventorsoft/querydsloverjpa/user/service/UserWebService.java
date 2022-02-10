@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -21,7 +20,7 @@ public class UserWebService {
 
     @Transactional(readOnly = true)
     public List<User> getAllUsers() {
-        return userRepository.getUsersStream().collect(Collectors.toUnmodifiableList());
+        return userRepository.getUsersStream().toList();
     }
 
     @Transactional(readOnly = true)

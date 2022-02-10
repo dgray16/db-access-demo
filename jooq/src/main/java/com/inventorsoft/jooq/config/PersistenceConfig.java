@@ -14,7 +14,7 @@ public class PersistenceConfig {
 
     @Bean
     DataSource dataSource() {
-        JdbcDatabaseContainer container = new PostgreSQLContainer("postgres:12-alpine")
+        JdbcDatabaseContainer<?> container = new PostgreSQLContainer<>("postgres:14-alpine")
                 .withDatabaseName("jooq-database")
                 .withUsername("postgres")
                 .withPassword("postgres")
